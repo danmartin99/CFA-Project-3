@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <form action="/stock" method="post">
+      <!-- req.body.ingredient_name -->
+      <input type="text" name="stock_name">
+      <input type="submit">
+    </form>
+
+    <ul>
+      <% stocks.forEach(stock => { %>
+        <li><%= stock.name %> <a href="/stock/<%= stock._id %>/edit">Edit</a> <a href="/stock/<%= stock._id %>/delete">Delete</a></li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

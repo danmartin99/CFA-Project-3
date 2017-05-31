@@ -1,2 +1,21 @@
-<h2 class="page-header">Dashboard</h2>
-<p>Welcome to your dashboard!</p>
+<form action="/stock" method="post">
+  <!-- req.body.stock_name -->
+  <p>Stock Name    <input type="text" name="stock_name"></p>	
+  <p>Stock PLU     <input type="number" name="stock_plu"></p>
+  <p>Cost Price    <input type="float:right" name="stock_costprice"></p>
+	<p>Sell Price    <input type="float:right" name="stock_sellprice"></p>
+	<p>Category      <input type="text" name="stock_category"></p>
+	<p>Qty on Hand   <input type="float:right" name="stock_qtyOnHand"></p>
+	<p>Reorder Level <input type="float:right" name="stock_reorderLevel"></p>
+  <input type="submit">
+</form>
+
+
+
+<ul>
+  {{#each items}}
+  <li>{{stock.name}}<a href=`/stock/{{stock._id}}/edit`>Edit</a> <a href=`/stock/{{ stock._id }}/delete`>Delete</a></li>
+  {{/each}}
+</ul>
+
+	
