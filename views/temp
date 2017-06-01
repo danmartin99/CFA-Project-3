@@ -1,0 +1,28 @@
+temp
+<p>Stock Name    <input type="text" name="stock_name"></p>	
+<p>Stock PLU     <input type="number" name="stock_plu"></p>
+	<p>Sell Price    <input type="float:right" name="stock_sellprice"></p>
+	  <p>Cost Price    <input type="float:right" name="stock_costprice"></p>
+	  	<p>Category      <input type="text" name="stock_category"></p>
+	  	<p>Qty on Hand   <input type="float:right" name="stock_qtyOnHand"></p>
+
+<form class="form-horizontal" role="form" style="width: 50%;">
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="">
+        </div>
+    </div>
+</form>
+
+</form>
+    <ul>
+      <% ingredients.forEach(ingredient => { %>
+        <li><%= ingredient.name %> <a href="/ingredient/<%= ingredient._id %>/edit">Edit</a> <a href="/ingredient/<%= ingredient._id %>/delete">Delete</a></li>
+      <% }) %>
+    </ul>
+
+
+    <script>console.log(stock);</script>
+
+    <li><a  ></a><a href=`/stock/{{stock._id}}/edit`>Edit</a> <a href=`/stock/{{ stock._id }}/delete`>Delete</a></li>

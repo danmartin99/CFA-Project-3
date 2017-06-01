@@ -21,7 +21,7 @@ router.get('/', ensureAuthenticated, (req, res) => {
     .then(stocks => {
       res.render('index', { 
           title: 'Stocks',
-            stock: Stock,
+            stock: stocks,
             lastitem: res.locals.lastitem 
        })     
     })
