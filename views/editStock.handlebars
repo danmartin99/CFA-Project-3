@@ -1,0 +1,74 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+   
+
+
+
+
+
+<form action="/stock/{{stock._id}}/edit" method="post" class="form-horizontal" role="form" style="width: 50%;">
+  <div class="form-group">
+    <div class="col-sm-2">
+      <label for="name" class="control-label">Name</label>
+    </div>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="name" placeholder="Stock Name" value="{{stock.name}}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-2">
+        <label for="name" class="control-label">PLU</label>
+      </div>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" name="plu" placeholder="Stock PLU" value="{{stock.plu}}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-2">
+        <label for="name" class="control-label">Cost</label>
+      </div>
+      <div class="col-sm-10">
+        <input type="float:right" class="form-control" name="costprice" placeholder="Cost Price" value="{{stock.costprice}}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-2">
+        <label for="name" class="control-label">Sell</label>
+      </div>
+      <div class="col-sm-10">
+        <input type="float:right" class="form-control" name="sellprice" placeholder="Sell Price" value="{{stock.sellprice}}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-2">
+        <label for="name" class="control-label">Category</label>
+      </div>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="category" placeholder="Category" value="{{stock.category}}">
+      </div>
+    </div>    
+
+ 
+
+    <div class="form-group">
+      <div class="col-sm-2">
+        <label for="name" class="control-label">Reorder</label>
+      </div>
+      <div class="col-sm-10">
+        <input type="float:right" class="form-control" name="reorderLevel" placeholder="Reorder Level" value="{{stock.reorderLevel}}">
+      </div>
+    </div> 
+
+    <div class="form-group">
+      <div class="col-sm-2">
+        <label for="name" class="control-label"></label>
+      </div>
+      <div class="col-sm-10">
+        <input type="submit" class="form-control">
+      </div>
+    </div>          

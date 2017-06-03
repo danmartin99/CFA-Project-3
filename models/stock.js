@@ -41,3 +41,4 @@ const stockSchema = new Schema({
 const Stock = mongoose.model('Stock', stockSchema);
 
 module.exports = Stock;
+
