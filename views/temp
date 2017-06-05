@@ -39,3 +39,19 @@ temp
     </div> 
 
     <form action="/stock" method="post" class="form-horizontal" role="form" style="width: 50%;">
+
+
+    <script>
+            function add_number(){
+
+            var first_number = 10;
+            console.log(first_number)
+            var second_number = 6;
+            var result = first_number + second_number;
+            return result;    
+            }
+</script>
+
+<div>
+         <input type="button" name="clickbtn" value="Display Result" onclick="add_number()">
+        </div>

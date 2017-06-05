@@ -9,8 +9,7 @@ const stockSchema = new Schema({
   },
   plu: {
   	type: Number,
-    index: true,
-    unique: true 
+    index: true
   },
   costprice: {
   	type: Number,
@@ -39,6 +38,5 @@ const stockSchema = new Schema({
 });
 
 const Stock = mongoose.model('Stock', stockSchema);
-
 module.exports = Stock;
 

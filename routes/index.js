@@ -56,11 +56,21 @@ router.post('/stock', (req, res) => {
 
   // Validate values from the form
   req.checkBody('stock_name', 'Name is required').notEmpty();
-
+  req.checkBody('stock_plu', 'PLU is required').notEmpty();
+  console.log('post req.body: ', req.body)
   // Set validation errors (express method)
+  //const uniqueErrors = req.stockSchema();
   const errors = req.validationErrors();
-// Check for validation errors
-  if (errors) {
+  // Check for PLU errors
+  //if (uniqueErrors) { console.log('Unique PLU errors: ', uniqueErrors)
+
+    // res.render('index', {
+    //   uniqueErrors: uniqueErrors,
+    // });
+
+  // Check for validation errors
+  if (errors) { 
+    console.log('errors: ', errors)
     res.render('index', {
       errors: errors,
     });
@@ -82,12 +92,17 @@ router.post('/stock', (req, res) => {
     }
 });
 
+
+
+
 router.get('/stock/:id/edit', (req,res) => {
   Stock.findOne({ _id: req.params.id})
     .then(stock => {
       res.render('editStock', {stock: stock})
     })
 });
+
+
 
 router.post('/stock/:id/edit', (req, res) => {
   console.log('edit req.body: ', req.body)
@@ -111,7 +126,7 @@ router.get('/stock/:id/delete', function(req, res){
 router.get('/saleStock', (req,res) => {
   Stock.find()
     .then(stocks => {
-      res.render('index', {
+      res.render('saleStock', {
         title: 'Stocks',
         stock: stocks,
         lastitem: res.locals.lastitem
@@ -119,4 +134,30 @@ router.get('/saleStock', (req,res) => {
     })
 });
 
+
+router.post('/saleStock/sale', (req, res) => {
+  console.log('saleStock req.body: ', req.body)
+   Stock.findOne({ plu: req.body.stock_plu}//, {
+  //   new: true // returns new sale
+  // }
+  )
+  .then(stock => {
+
+     console.log(stock);
+     stock.qtyOnHand -= req.body.qty_sold;
+     stock.save()
+        .then( () => {
+          console.log("saved stock", stock);
+          res.render('/checkout', {stock: stock})
+
+        });
+  });
+});
+
+router.get('/checkout/:id/edit', (req,res) => {
+  Stock.findOne({ _id: req.params.id})
+    .then(stock => {
+      res.render('editStock', {stock: stock})
+    })
+});
 module.exports = router;
