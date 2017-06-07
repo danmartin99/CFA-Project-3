@@ -20,7 +20,7 @@ router.get('/', ensureAuthenticated, (req, res) => {
   Stock.find()
     .then(stocks => {
       res.render('index', { 
-          title: 'Stocks',
+          title: 'Stocks Create',
             stock: stocks,
             lastitem: res.locals.lastitem 
        })     
@@ -37,7 +37,7 @@ router.get('/stock', (req,res) => {
   Stock.find()
     .then(stocks => {
       res.render('index', {
-        title: 'Stocks',
+        title: 'Stocks Create',
         stock: stocks,
         lastitem: res.locals.lastitem
       })
@@ -98,7 +98,7 @@ router.post('/stock', (req, res) => {
 router.get('/stock/:id/edit', (req,res) => {
   Stock.findOne({ _id: req.params.id})
     .then(stock => {
-      res.render('editStock', {stock: stock})
+      res.render('editStock', {title: 'Stocks Edit', stock: stock})
     })
 });
 
@@ -128,7 +128,7 @@ router.get('/saleStock', (req,res) => {
     .then(stocks => {
       
       res.render('saleStock', {
-        title: 'Stocks',
+        title: 'DDDDDDDDDDD',
         stock: stocks,
         lastitem: res.locals.lastitem
       })
@@ -138,7 +138,7 @@ router.get('/saleStock', (req,res) => {
 router.get('/stock/:id/sell', (req,res) => {
   Stock.findOne({ _id: req.params.id})
     .then(stock => {
-      res.render('saleStock', {stock: stock})
+      res.render('saleStock', {title: 'Stocks Sell', stock: stock})
     })
 });
 
@@ -154,7 +154,7 @@ router.post('/stock/:id/sale', (req, res) => {
   .then(stock => {
      console.log("before", stock);
      stock.qtyOnHand -= req.body.qty_sold;
-     stock.checkoutValue = req.body.qty_sold * req.body.sellprice
+     // stock.checkoutValue = req.body.qty_sold * req.body.sellprice
      stock.save()
         .then( (stock) => {
           console.log("saved stock", stock);
@@ -168,22 +168,22 @@ router.post('/stock/:id/sale', (req, res) => {
 router.get('/stock/:id/receipt', (req,res) => {
   Stock.findOne({ _id: req.params.id})
     .then(stock => {
-      res.render('receiptStock', {stock: stock})
+      res.render('receiptStock', {title: 'Stocks Receipt', stock: stock})
     })
 });
 
 router.post('/stock/:id/receipt', (req, res) => {
-  console.log('saleStock req.body: ', req.body)
+  console.log('receiptStock req.body: ', req.body)
    Stock.findOneAndUpdate({ _id: req.params.id }, req.body, {
      new: true // returns new sale
   })
   .then(stock => {
-     console.log("before", stock);
-     stock.qtyOnHand += req.body.qty_sold;
-     stock.checkoutValue = req.body.qty_sold * req.body.sellprice
+     console.log("receipt before", stock);
+     stock.qtyOnHand = stock.qtyOnHand + req.body.qty_received;
+     // stock.checkoutValue = req.body.qty_sold * req.body.sellprice
      stock.save()
         .then( (stock) => {
-          console.log("saved stock", stock);
+          console.log("receipt saved stock", stock);
           //res.render('checkout', {stock: stock})
           res.redirect('/')
         });
@@ -193,22 +193,22 @@ router.post('/stock/:id/receipt', (req, res) => {
 router.get('/stock/:id/take', (req,res) => {
   Stock.findOne({ _id: req.params.id})
     .then(stock => {
-      res.render('saleStock', {stock: stock})
+      res.render('takeStock', {title: 'Stocks Take', stock: stock})
     })
 });
 
 router.post('/stock/:id/take', (req, res) => {
-  console.log('saleStock req.body: ', req.body)
+  console.log('takeStock req.body: ', req.body)
    Stock.findOneAndUpdate({ _id: req.params.id }, req.body, {
      new: true // returns new sale
   })
   .then(stock => {
-     console.log("before", stock);
-     stock.qtyOnHand -= req.body.qty_sold;
-     stock.checkoutValue = req.body.qty_sold * req.body.sellprice
+     console.log("take before", stock);
+     stock.qtyOnHand = req.body.qty_sold;
+     // stock.checkoutValue = req.body.qty_sold * req.body.sellprice
      stock.save()
         .then( (stock) => {
-          console.log("saved stock", stock);
+          console.log("take saved stock", stock);
           //res.render('checkout', {stock: stock})
           res.redirect('/')
         });

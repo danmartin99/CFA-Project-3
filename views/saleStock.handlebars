@@ -1,5 +1,3 @@
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-
 
  <form action="/stock/{{stock._id}}/sale" method="post" class="form-horizontal" role="form" style="width: 50%;">
      <div class="form-group">
@@ -11,7 +9,6 @@
       </div>
     </div>
 
-
     <div class="form-group">
     	<div class="col-sm-2">
   			<label for="stock_plu" class="control-label">PLU</label>
@@ -21,8 +18,6 @@
   		</div>
     </div>
     
-
-
     <div class="form-group">
     	<div class="col-sm-2">
   			<label for="name" class="control-label">Unit Price</label>
@@ -40,16 +35,6 @@
         <input type="number" class="form-control" id="qty_sold" name="qty_sold" placeholder="Qty Sold" value="">
       </div>
     </div>
-
-    <div class="form-group">
-      <div class="col-sm-2">
-        <label for="amount" class="control-label">Amount</label>
-      </div>
-      <div class="col-sm-10">
-        <input type="number" class="form-control" id="amount" name="amount" placeholder="" value=qty_sold readonly>
-      </div>
-    </div>
-
    
     <div class="form-group">
     	<div class="col-sm-2">
@@ -60,20 +45,5 @@
   		</div>
     </div>   
   </form>  
-  <!-- <div>    
-    <input type="number" name="rate" id="rate" />
-    <input type="number" name="box" id="box" />
-    <input type="number" name="amount" id="amount" readonly />
-  </div>  
-<script>
 
-  $('#rate, #box').change(function(){
-    var rate = parseFloat($('#rate').val()) || 0;
-    var box = parseFloat($('#box').val()) || 0;
-
-    $('#amount').val(rate * box);    
-});
-
-</script>
- -->
 	
