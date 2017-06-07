@@ -126,6 +126,7 @@ router.get('/stock/:id/delete', function(req, res){
 router.get('/saleStock', (req,res) => {
   Stock.find()
     .then(stocks => {
+      
       res.render('saleStock', {
         title: 'Stocks',
         stock: stocks,
@@ -134,30 +135,83 @@ router.get('/saleStock', (req,res) => {
     })
 });
 
+router.get('/stock/:id/sell', (req,res) => {
+  Stock.findOne({ _id: req.params.id})
+    .then(stock => {
+      res.render('saleStock', {stock: stock})
+    })
+});
 
-router.post('/saleStock/sale', (req, res) => {
+//router.post('/saleStock', (req, res) => {
+  // router.post('/stock/:id/sell', (req, res) => {
+  // console.log('saleStock req.body: ', req.body)
+  //  Stock.findOne({ plu: req.body.stock_plu}//, {
+router.post('/stock/:id/sale', (req, res) => {
   console.log('saleStock req.body: ', req.body)
-   Stock.findOne({ plu: req.body.stock_plu}//, {
-  //   new: true // returns new sale
-  // }
-  )
+   Stock.findOneAndUpdate({ _id: req.params.id }, req.body, {
+     new: true // returns new sale
+  })
   .then(stock => {
-
-     console.log(stock);
+     console.log("before", stock);
      stock.qtyOnHand -= req.body.qty_sold;
+     stock.checkoutValue = req.body.qty_sold * req.body.sellprice
      stock.save()
-        .then( () => {
+        .then( (stock) => {
           console.log("saved stock", stock);
-          res.render('/checkout', {stock: stock})
-
+          //res.render('checkout', {stock: stock})
+          res.redirect('/')
         });
   });
 });
 
-router.get('/checkout/:id/edit', (req,res) => {
+
+router.get('/stock/:id/receipt', (req,res) => {
   Stock.findOne({ _id: req.params.id})
     .then(stock => {
-      res.render('editStock', {stock: stock})
+      res.render('receiptStock', {stock: stock})
     })
+});
+
+router.post('/stock/:id/receipt', (req, res) => {
+  console.log('saleStock req.body: ', req.body)
+   Stock.findOneAndUpdate({ _id: req.params.id }, req.body, {
+     new: true // returns new sale
+  })
+  .then(stock => {
+     console.log("before", stock);
+     stock.qtyOnHand += req.body.qty_sold;
+     stock.checkoutValue = req.body.qty_sold * req.body.sellprice
+     stock.save()
+        .then( (stock) => {
+          console.log("saved stock", stock);
+          //res.render('checkout', {stock: stock})
+          res.redirect('/')
+        });
+  });
+});
+
+router.get('/stock/:id/take', (req,res) => {
+  Stock.findOne({ _id: req.params.id})
+    .then(stock => {
+      res.render('saleStock', {stock: stock})
+    })
+});
+
+router.post('/stock/:id/take', (req, res) => {
+  console.log('saleStock req.body: ', req.body)
+   Stock.findOneAndUpdate({ _id: req.params.id }, req.body, {
+     new: true // returns new sale
+  })
+  .then(stock => {
+     console.log("before", stock);
+     stock.qtyOnHand -= req.body.qty_sold;
+     stock.checkoutValue = req.body.qty_sold * req.body.sellprice
+     stock.save()
+        .then( (stock) => {
+          console.log("saved stock", stock);
+          //res.render('checkout', {stock: stock})
+          res.redirect('/')
+        });
+  });
 });
 module.exports = router;

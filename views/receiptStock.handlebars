@@ -1,78 +1,57 @@
 
-  <div class="form-group">
-  	<div class="col-sm-2">
-  		<label for="name" class="control-label">Name</label>
-  	</div>
-  		<div class="col-sm-10">
-  			<input type="text" class="form-control" name="stock_name" placeholder="Stock Name" value="">
-  		</div>
+   <form action="/stock/{{stock._id}}/receipt" method="post" class="form-horizontal" role="form" style="width: 50%;">
+     <div class="form-group">
+    <div class="col-sm-2">
+      <label for="name" class="control-label">Name</label>
+    </div>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="name" placeholder="Stock Name" value="{{stock.name}}" readonly>
+      </div>
     </div>
 
     <div class="form-group">
-    	<div class="col-sm-2">
-  			<label for="name" class="control-label">PLU</label>
-  		</div>
-  		<div class="col-sm-10">
-  			<input type="number" class="form-control" name="stock_plu" placeholder="Stock PLU" value="">
-  		</div>
+      <div class="col-sm-2">
+        <label for="stock_plu" class="control-label">PLU</label>
+      </div>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" name="stock_plu" placeholder="Stock PLU" value="{{stock.plu}}" readonly="">
+      </div>
     </div>
 
     <div class="form-group">
-    	<div class="col-sm-2">
-  			<label for="name" class="control-label">Cost</label>
-  		</div>
-  		<div class="col-sm-10">
-  			<input type="float:right" class="form-control" name="stock_costprice" placeholder="Cost Price" value="">
-  		</div>
+      <div class="col-sm-2">
+        <label for="name" class="control-label">Unit Cost Price</label>
+      </div>
+      <div class="col-sm-10">
+        <input type="float:right" class="form-control" id="{{stock.costprice}}" name="{{stock.costprice}}" placeholder="costprice" value="{{stock.costprice}}">
+      </div>
     </div>
 
     <div class="form-group">
-    	<div class="col-sm-2">
-  			<label for="name" class="control-label">Sell</label>
-  		</div>
-  		<div class="col-sm-10">
-  			<input type="float:right" class="form-control" name="stock_sellprice" placeholder="Sell Price" value="">
-  		</div>
+      <div class="col-sm-2">
+        <label for="qty_sold" class="control-label">Enter</label>
+      </div>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="qty_received" name="qty_received" placeholder="Qty Received" value="">
+      </div>
     </div>
 
+    <!-- <div class="form-group">
+      <div class="col-sm-2">
+        <label for="amount" class="control-label">Amount</label>
+      </div>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="amount" name="amount" placeholder="" value=qty_sold readonly>
+      </div>
+    </div> -->
+
+   
     <div class="form-group">
-    	<div class="col-sm-2">
-  			<label for="name" class="control-label">Category</label>
-  		</div>
-  		<div class="col-sm-10">
-  			<input type="text" class="form-control" name="stock_category" placeholder="Category" value="">
-  		</div>
-    </div>    
-
-    <div class="form-group">
-    	<div class="col-sm-2">
-  			<label for="name" class="control-label">Qty</label>
-  		</div>
-  		<div class="col-sm-10">
-  			<input type="float:right" class="form-control" name="stock_qtyOnHand" placeholder="Quantity on Hand" value="">
-  		</div>
-    </div> 
-
-    <div class="form-group">
-    	<div class="col-sm-2">
-  			<label for="name" class="control-label">Reorder</label>
-  		</div>
-  		<div class="col-sm-10">
-  			<input type="float:right" class="form-control" name="stock_reorderLevel" placeholder="Reorder Level" value="">
-  		</div>
-    </div> 
-
-    <div class="form-group">
-    	<div class="col-sm-2">
-  			<label for="name" class="control-label"></label>
-  		</div>
-  		<div class="col-sm-10">
-  			<input type="submit" class="form-control">
-  		</div>
-    </div>                    
-</body>
-</html>
-
-
-
-	
+      <div class="col-sm-2">
+        <label for="name" class="control-label"></label>
+      </div>
+      <div class="col-sm-10">
+        <input type="submit" class="form-control" >
+      </div>
+    </div>   
+  </form>  

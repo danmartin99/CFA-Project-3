@@ -1,3 +1,4 @@
+require('dotenv').config()
 // Express Framework
 const express = require('express');
 // Utilities for working with file and dir paths

@@ -95,6 +95,9 @@
         <th>Stock PLU</th>
         <th>Edit</th>
         <th>Delete</th>
+        <th>Sell</th>
+        <th>Receipt</th>
+        <th>Take</th>
       </tr>
     </thead>
     <tbody>
@@ -104,6 +107,9 @@
 	  		<td>{{this.plu}}</td>
 	   		<td> <a href=/stock/{{this._id}}/edit>Edit</a></td>
 				<td> <a href=/stock/{{this._id}}/delete>Delete</a></td>  
+				<td> <a href=/stock/{{this._id}}/sell>Sell</a></td> 
+				<td> <a href=/stock/{{this._id}}/receipt>Receipt</a></td> 
+				<td> <a href=/stock/{{this._id}}/take>Take</a></td> 
       </tr>
       	{{/each}}
     </tbody>
