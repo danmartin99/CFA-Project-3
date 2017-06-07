@@ -28,7 +28,7 @@ const mongoose = require('mongoose');
 
 // Create connection to DB named userauthapp
 mongoose.connect('mongodb://localhost/userauthapp');
-
+//var url = process.env.MONGOLAB_URI || 'mongodb://localhost/recipes'; 
 // Assign the connection to a variable db
 const db = mongoose.connection;
 

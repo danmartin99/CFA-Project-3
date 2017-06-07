@@ -8,9 +8,13 @@
     "start": "node app.js",
     "watch": "nodemon app.js",
     "test": "mocha"
-
   },
-  "author": "Alex",
+
+  "engines": {
+    "node": "7.10.0"
+  },
+
+  "author": "Dan",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "*",
