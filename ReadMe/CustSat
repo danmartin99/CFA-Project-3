@@ -1,0 +1,12 @@
+Customer satisfaction survey for Stock Management Node.js Application project.
+
+1. Was the initial information collection done in an appropriate manner YES / NO.
+2. Did the Project Proposal document cover the requirements correctly YES / NO.
+3. Did the Project Proposal give sufficient detail on what the project would deliver. YES / NO.
+4. Did the Wire Frames give a reasonable idea of what the final screens would look like. YES / NO.
+5. Did the Entity Relationship Diagram give information re what data would be collected and what the Schema would look like YES / NO.
+6. Did the application meet your initial requirement to a) Enter Stock items, b) be able to enter sales, receipts and stock amendments and update the database as required d) be able to see stock details.
+7. Did the documentation meet your requirements.
+8. Is the application easy to use on either a PC or as a web app on Heroku.
+9. Would you use our services again 
+10. Would you recommend our services to a friend.
