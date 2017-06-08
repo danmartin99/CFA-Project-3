@@ -1,7 +1,7 @@
 {
   "name": "CFA-Project-3",
   "version": "1.0.0",
-  "description": "Simple auth system",
+  "description": "Simple auth and Stock Mgmt system",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -11,7 +11,7 @@
   "engines": {
     "node": "7.10.0"
   },
-  "author": "Dan",
+  "author": "Dan and Alex",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "*",
