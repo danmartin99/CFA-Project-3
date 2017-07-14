@@ -9,7 +9,7 @@
     "test": "mocha"
   },
   "engines": {
-    "node": "7.10.0"
+    "node": "6.11.1"
   },
   "author": "Dan and Alex",
   "license": "ISC",
